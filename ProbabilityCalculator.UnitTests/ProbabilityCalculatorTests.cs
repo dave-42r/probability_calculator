@@ -26,6 +26,14 @@ namespace ProbabilityCalculator.UnitTests
         }
 
         [Test]
+        public void Given_Two_Valid_Inputs_The_Calculator_Should_Not_Throw_An_ArgumentException()
+        {
+            ProbabilityA = 0m;
+            ProbabilityB = 1m;
+            Assert.DoesNotThrow(() => _calculatorService.CalculateProbabilities(ProbabilityA, ProbabilityB));
+        }
+
+        [Test]
         public void
             Given_Probability_A_Is_Greater_Than_1_When_Calculating_Probabilities_Then_An_ArgumentException_Should_Be_Thrown()
         {
