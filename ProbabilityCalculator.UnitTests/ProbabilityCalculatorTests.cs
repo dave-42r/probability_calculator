@@ -61,5 +61,12 @@ namespace ProbabilityCalculator.UnitTests
             ProbabilityB = 1.1m;
             Assert.Throws<ArgumentException>(() => _calculatorService.CalculateProbabilities(ProbabilityA, ProbabilityB));
         }
+
+        [Test]
+        public void At_least_Two_Types_Of_Calculation_Can_Be_Performed()
+        {
+            Assert.DoesNotThrow(() => _calculatorService.CalculateProbabilities(ProbabilityA, ProbabilityB, CalculationType.CombinedWith));
+            Assert.DoesNotThrow(() => _calculatorService.CalculateProbabilities(ProbabilityA, ProbabilityB, CalculationType.Either));
+        }
     }
 }
