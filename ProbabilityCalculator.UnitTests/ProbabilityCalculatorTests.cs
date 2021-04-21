@@ -5,18 +5,14 @@ namespace ProbabilityCalculator.UnitTests
 {
     public class ProbabilityCalculatorTests
     {
-        private readonly CalculatorService _calculatorService;
+        private ICalculatorService _calculatorService;
         public decimal ProbabilityA { get; set; }
         public decimal ProbabilityB { get; set; }
 
-        public ProbabilityCalculatorTests(CalculatorService calculatorService)
-        {
-            _calculatorService = calculatorService;
-        }
-        
         [SetUp]
         public void Setup()
         {
+            _calculatorService = new CalculatorService();
             ProbabilityA = 0;
             ProbabilityB = 1;
         }
@@ -45,12 +41,12 @@ namespace ProbabilityCalculator.UnitTests
     {
         public void CalculateProbabilities(in decimal probabilityA, in decimal probabilityB)
         {
-            throw new NotImplementedException();
+            throw new ArgumentException();
         }
     }
 
     public interface ICalculatorService
     {
-
+        void CalculateProbabilities(in decimal probabilityA, in decimal probabilityB);
     }
 }
