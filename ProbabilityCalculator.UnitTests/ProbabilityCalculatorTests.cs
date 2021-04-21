@@ -70,7 +70,7 @@ namespace ProbabilityCalculator.UnitTests
         }
 
         [Test]
-        public void CombinedWith_Should_Multiply_Probabilities_Together()
+        public void CombinedWith_Calculation_Should_Multiply_Probabilities_Together()
         {
             //Given
             ProbabilityA = 0.5m;
@@ -79,6 +79,21 @@ namespace ProbabilityCalculator.UnitTests
 
             //When
             decimal actualResult = _calculatorService.CalculateProbabilities(ProbabilityA, ProbabilityB, CalculationType.CombinedWith);
+
+            //Then
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [Test]
+        public void Either_Calculation_Should_Add_Two_Probabilities_Then_Subtract_The_Same_Two_Combined()
+        {
+            //Given
+            ProbabilityA = 0.5m;
+            ProbabilityB = 0.5m;
+            decimal expectedResult = 0.75m;
+
+            //When
+            decimal actualResult = _calculatorService.CalculateProbabilities(ProbabilityA, ProbabilityB, CalculationType.Either);
 
             //Then
             Assert.AreEqual(expectedResult, actualResult);
