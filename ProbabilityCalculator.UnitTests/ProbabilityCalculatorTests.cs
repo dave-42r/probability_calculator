@@ -68,5 +68,13 @@ namespace ProbabilityCalculator.UnitTests
             Assert.DoesNotThrow(() => _calculatorService.CalculateProbabilities(ProbabilityA, ProbabilityB, CalculationType.CombinedWith));
             Assert.DoesNotThrow(() => _calculatorService.CalculateProbabilities(ProbabilityA, ProbabilityB, CalculationType.Either));
         }
+
+        [Test]
+        public void CombinedWith_Should_Multiply_Probabilities_Together()
+        {
+            decimal expectedResult = 0.25m;
+            decimal actualResult = _calculatorService.CalculateProbabilities(ProbabilityA, ProbabilityB, CalculationType.CombinedWith);
+            Assert.AreEqual(expectedResult, actualResult);
+        }
     }
 }

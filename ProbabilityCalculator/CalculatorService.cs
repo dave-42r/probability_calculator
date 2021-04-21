@@ -4,9 +4,11 @@ namespace ProbabilityCalculator.UnitTests
 {
     public class CalculatorService : ICalculatorService
     {
-        public void CalculateProbabilities(in decimal probabilityA, in decimal probabilityB, CalculationType calculationType)
+        public decimal CalculateProbabilities(in decimal probabilityA, in decimal probabilityB, CalculationType calculationType)
         {
             ValidateUserInputs(probabilityA, probabilityB);
+
+            return 0m;
         }
 
         private static void ValidateUserInputs(decimal probabilityA, decimal probabilityB, CalculationType calculationType = CalculationType.CombinedWith)
