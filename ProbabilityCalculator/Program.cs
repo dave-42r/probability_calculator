@@ -1,33 +1,38 @@
 ﻿using System;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using ProbabilityCalculator.EndToEndTests;
 using ProbabilityCalculator.UnitTests;
+using Serilog;
+using Serilog.Core;
 
 namespace ProbabilityCalculator
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello and welcome to the Probability Calculator");
-            Console.WriteLine("Please enter the first valid probability(0.0 >= a <= 1.0");
+            SetupLogging();
+            var calculatorUserInteractionService = new CalculatorUserInteractionService(new CalculatorService(), Log.Logger);
 
-            var probabilityA = Decimal.Parse(Console.ReadLine());
+            calculatorUserInteractionService.StartUserCalculatorInteraction();
+        }
 
-            Console.WriteLine("Please enter the second valid probability(0.0 >= b <= 1.0");
 
-            var probabilityB = Decimal.Parse(Console.ReadLine());
 
-            Console.WriteLine("Which calculation would you like to perform?");
-            Console.WriteLine("Press 1 for CombinedWith (P(A)P(B) e.g. 0.5 * 0.5 = 0.25");
-            Console.WriteLine("Press 2 for Either P(A) + P(B) - P(A)P(B) e.g. 0.5 + 0.5 – 0.5 * 0.5 = 0.75");
+        private static Logger SetupLogging()
+        {
+            var logger = new LoggerConfiguration()
+                .Enrich.WithProperty("Version", "1.0.0")
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("log.txt", rollingInterval: RollingInterval.Infinite)
+                .CreateLogger();
+            Log.Logger = logger;
 
-            var calculationChosen = int.Parse(Console.ReadLine());
-            decimal result = 0m;
-            if (calculationChosen == 1)
-                result = new CalculatorService().CalculateProbabilities(probabilityA, probabilityB, CalculationType.CombinedWith);
-            if (calculationChosen == 2)
-                result = new CalculatorService().CalculateProbabilities(probabilityA, probabilityB, CalculationType.Either);
+            Log.Logger.Information("Logging setup complete");
 
-            Console.WriteLine($"Your result is: {result}");
+            return logger;
         }
     }
 }

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProbabilityCalculator", "ProbabilityCalculator\ProbabilityCalculator.csproj", "{9CA6C1B6-67D6-4CD7-9058-A91EC471AAF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProbabilityCalculator", "ProbabilityCalculator\ProbabilityCalculator.csproj", "{9CA6C1B6-67D6-4CD7-9058-A91EC471AAF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProbabilityCalculator.UnitTests", "ProbabilityCalculator.UnitTests\ProbabilityCalculator.UnitTests.csproj", "{2936F507-FD23-4025-B6F4-1D0AAB85A844}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProbabilityCalculator.UnitTests", "ProbabilityCalculator.UnitTests\ProbabilityCalculator.UnitTests.csproj", "{2936F507-FD23-4025-B6F4-1D0AAB85A844}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
