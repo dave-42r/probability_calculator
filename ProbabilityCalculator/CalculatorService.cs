@@ -8,7 +8,13 @@ namespace ProbabilityCalculator.UnitTests
         {
             ValidateUserInputs(probabilityA, probabilityB);
 
-            return probabilityA * probabilityB;
+            if (calculationType == CalculationType.Either)
+                return probabilityA + probabilityB - (probabilityA * probabilityB);
+
+            if (calculationType == CalculationType.CombinedWith)
+                return probabilityA * probabilityB;
+
+            throw new ArgumentException("This calculation type is not expected");
         }
 
         private static void ValidateUserInputs(decimal probabilityA, decimal probabilityB, CalculationType calculationType = CalculationType.CombinedWith)
