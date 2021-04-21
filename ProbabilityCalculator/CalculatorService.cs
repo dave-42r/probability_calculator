@@ -1,6 +1,7 @@
 using System;
+using ProbabilityCalculator.UnitTests;
 
-namespace ProbabilityCalculator.UnitTests
+namespace ProbabilityCalculator
 {
     public class CalculatorService : ICalculatorService
     {
@@ -9,12 +10,22 @@ namespace ProbabilityCalculator.UnitTests
             ValidateUserInputs(probabilityA, probabilityB);
 
             if (calculationType == CalculationType.Either)
-                return probabilityA + probabilityB - (probabilityA * probabilityB);
+                return CalculateEither(probabilityA, probabilityB);
 
             if (calculationType == CalculationType.CombinedWith)
-                return probabilityA * probabilityB;
+                return CalculateCombinedWith(probabilityA, probabilityB);
 
             throw new ArgumentException("This calculation type is not expected");
+        }
+
+        private static decimal CalculateEither(decimal probabilityA, decimal probabilityB)
+        {
+            return probabilityA + probabilityB - (CalculateCombinedWith(probabilityA, probabilityB));
+        }
+
+        private static decimal CalculateCombinedWith(decimal probabilityA, decimal probabilityB)
+        {
+            return probabilityA * probabilityB;
         }
 
         private static void ValidateUserInputs(decimal probabilityA, decimal probabilityB, CalculationType calculationType = CalculationType.CombinedWith)
