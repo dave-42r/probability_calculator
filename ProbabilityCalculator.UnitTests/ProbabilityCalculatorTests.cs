@@ -72,8 +72,15 @@ namespace ProbabilityCalculator.UnitTests
         [Test]
         public void CombinedWith_Should_Multiply_Probabilities_Together()
         {
+            //Given
+            ProbabilityA = 0.5m;
+            ProbabilityB = 0.5m;
             decimal expectedResult = 0.25m;
+
+            //When
             decimal actualResult = _calculatorService.CalculateProbabilities(ProbabilityA, ProbabilityB, CalculationType.CombinedWith);
+
+            //Then
             Assert.AreEqual(expectedResult, actualResult);
         }
     }

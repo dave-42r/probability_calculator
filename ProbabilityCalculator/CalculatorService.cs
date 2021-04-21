@@ -8,7 +8,7 @@ namespace ProbabilityCalculator.UnitTests
         {
             ValidateUserInputs(probabilityA, probabilityB);
 
-            return 0m;
+            return probabilityA * probabilityB;
         }
 
         private static void ValidateUserInputs(decimal probabilityA, decimal probabilityB, CalculationType calculationType = CalculationType.CombinedWith)
