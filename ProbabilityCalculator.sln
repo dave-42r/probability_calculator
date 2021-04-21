@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProbabilityCalculator", "ProbabilityCalculator.csproj", "{8C4CDB95-1ABE-493C-BE93-87C9F19987E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProbabilityCalculator.UnitTests", "..\ProbabilityCalculator.UnitTests\ProbabilityCalculator.UnitTests.csproj", "{6A790C88-A984-49F6-82BE-A59F1473DFFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8C4CDB95-1ABE-493C-BE93-87C9F19987E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C4CDB95-1ABE-493C-BE93-87C9F19987E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C4CDB95-1ABE-493C-BE93-87C9F19987E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A790C88-A984-49F6-82BE-A59F1473DFFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A790C88-A984-49F6-82BE-A59F1473DFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A790C88-A984-49F6-82BE-A59F1473DFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A790C88-A984-49F6-82BE-A59F1473DFFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
